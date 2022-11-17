@@ -7,6 +7,7 @@ const message = document.querySelector('.message');
 const btnAgain = document.querySelector('.again');
 
 let score = 20;
+let hightScore = 0;
 
 console.log(secretNumber);
 
@@ -19,6 +20,11 @@ btnCheck.addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > hightScore) {
+      hightScore = score;
+      document.querySelector('.highscore').textContent = hightScore;
+    }
   } else if (guess < secretNumber) {
     if (score > 1) {
       message.textContent = '📈 Your number is too small!';
